@@ -22,8 +22,8 @@ Data can contain some errors so be careful.
 
 We can use some external information :
   - data from [dblp](https://dblp.uni-trier.de/db/conf/f-egc/)
-  - archives of the mailing list availbale [here](https://www.egc.asso.fr/manifestations/defi-egc/defi-egc-2020-20-ans-dhistoire-pour-quel-avenir.html)
-  - tweets of ECG association availables [here](https://github.com/pbruneau/EGC-Social-Data)
+  - archives of the mailing list available [here](https://www.egc.asso.fr/manifestations/defi-egc/defi-egc-2020-20-ans-dhistoire-pour-quel-avenir.html)
+  - tweets of ECG association available [here](https://github.com/pbruneau/EGC-Social-Data)
 
 ## Definition of a problems
 
@@ -31,7 +31,7 @@ We have to define a problem and use the techniques we learned to solve it. Some 
 - Identify groups of researchers who publish together
 - Detect groups of researcher who work on the same topic
 - Give the list of the main topics of the conference for a given year or study the evolution of these topics
-over the period
+over the period (example of representation with a bag of words model)
 - Propose a model to detect new topics appearing in the publications
 - Identify famous researchers based on their publications or based on citations of their papers
 

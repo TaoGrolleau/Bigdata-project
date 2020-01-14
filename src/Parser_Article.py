@@ -3,6 +3,7 @@ import csv
 import string
 import unicodedata
 from Article import Article
+from collections import Counter
 
 def strip_accents(text):
 
@@ -158,6 +159,26 @@ def cleaning_articles():
 		cleaned_articles.append(article)
 	return cleaned_articles
 
+def all_words(list_all_articles):
+	list_words_score = []
+	for article in list_all_articles:
+		for elem in article.series:
+			list_words_score.append(elem)
+		for elem in article.booktitle:
+			list_words_score.append(elem)
+		for elem in article.year:
+			list_words_score.append(elem)
+		for elem in article.title:
+			list_words_score.append(elem)
+		for elem in article.abstract:
+			list_words_score.append(elem)
+		for elem in article.abstract:
+			list_words_score.append(elem)
+	c = Counter(list_words_score)
+	print(c)
+
 articles = cleaning_articles()
-for elem in articles:
-	print(elem)
+#for elem in articles:
+#	print(elem)
+all_words(articles)
+ 
