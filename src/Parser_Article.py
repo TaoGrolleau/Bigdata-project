@@ -42,7 +42,8 @@ def parse_articles():
 				row[3].encode('latin1').decode('utf-8').lower(), 
 				row[4].encode('latin1').decode('utf-8').lower(), 
 				row[5].encode('latin1').decode('utf-8').lower(), 
-				row[6].encode('latin1').decode('utf-8').lower())
+				row[6].encode('latin1').decode('utf-8').lower(),
+				row[7].encode('latin1').decode('utf-8').lower())
 			list_all_articles.append(art)
 	return list_all_articles
 
@@ -69,6 +70,7 @@ def cleaning_articles():
 		list_series = []
 		list_booktitle = []
 		list_year = []
+		list_title = []
 		list_abstract = []
 		list_authors = []
 		list_pdf1page = []
@@ -81,6 +83,7 @@ def cleaning_articles():
 		art.series = strip_punctuation(art.series)
 		art.booktitle = strip_punctuation(art.booktitle)
 		art.year = strip_punctuation(art.year)
+		art.title = strip_punctuation(art.title)
 		art.abstract = strip_punctuation(art.abstract)
 		art.authors = strip_punctuation(art.authors)
 		
@@ -96,6 +99,9 @@ def cleaning_articles():
 		for elem in art.year.split():
 			elem = strip_accents(elem)
 			list_year.append(elem)
+		for elem in art.title.split():
+			elem = strip_accents(elem)
+			list_title.append(elem)
 		for elem in art.abstract.split():
 			elem = strip_accents(elem)
 			list_abstract.append(elem)
@@ -126,6 +132,10 @@ def cleaning_articles():
 				for elem in list_year:
 					if elem == stopword:
 						list_year.remove(elem)
+			if stopword in list_title:
+				for elem in list_title:
+					if elem == stopword:
+						list_title.remove(elem)
 			if stopword in list_abstract:
 				for elem in list_abstract:
 					if elem == stopword:
@@ -144,10 +154,10 @@ def cleaning_articles():
 					if elem == stopword:
 						list_pdfarticle.remove(elem)
 		
-		article = Article(list_series, list_booktitle, list_year, list_abstract, list_authors, list_pdf1page, list_pdfarticle)
+		article = Article(list_series, list_booktitle, list_year, list_title,list_abstract, list_authors, list_pdf1page, list_pdfarticle)
 		cleaned_articles.append(article)
 	return cleaned_articles
 
 articles = cleaning_articles()
 for elem in articles:
-	print(elem.abstract)
+	print(elem)
