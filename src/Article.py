@@ -1,13 +1,4 @@
 class Article:
-	series = ''
-	booktitle = ''
-	year = ''
-	title = ''
-	abstract = ''
-	authors = ''
-	pdf1page = ''
-	pdfarticle = ''
-	
 	def __init__(self, series, booktitle, year, title, abstract, authors, pdf1page, pdfarticle):
 		self.series = series
 		self.booktitle = booktitle

@@ -14,8 +14,8 @@ Format (in column) :
   - authors (ex : 'Claudia Marinica, Julien Longhi, Nader Hassine, Abdulhafiz Alkhouli, Boris Borzic')
   - pdf1page (ex : 'http://editions-rnti.fr/render_pdf.php?p1&p=1002425')
   - pdfarticle (ex : 'http://editions-rnti.fr/render_pdf.php?p=1002425')
-One row is equivalent to one record and each column is separated by a horizontal tab.
 
+One row is equivalent to one record and each column is separated by a horizontal tab.
 Data can contain some errors so be careful.
 
 ## Additional information
@@ -25,7 +25,7 @@ We can use some external information :
   - archives of the mailing list available [here](https://www.egc.asso.fr/manifestations/defi-egc/defi-egc-2020-20-ans-dhistoire-pour-quel-avenir.html)
   - tweets of ECG association available [here](https://github.com/pbruneau/EGC-Social-Data)
 
-## Definition of a problems
+## Definition of problems
 
 We have to define a problem and use the techniques we learned to solve it. Some example of problems :
 - Identify groups of researchers who publish together
