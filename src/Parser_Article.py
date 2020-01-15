@@ -6,7 +6,6 @@ from Article import Article
 from collections import Counter
 
 def strip_accents(text):
-
     try:
         text = unicode(text, 'utf-8')
     except NameError: # unicode is a default on python 3 
@@ -34,27 +33,31 @@ def parse_articles():
 	Parse the TXT file used as our data in the project
 	'''
 	list_all_articles = []
-	with open('../export_articles_EGC_2004_2018.csv', 'r', encoding='latin1') as article_data:
+	with open('../resources/export_articles_EGC_2004_2018.csv', 'r', encoding='utf-8') as article_data:
 		all_data = csv.reader(article_data, delimiter='\t')
 		for row in all_data:
-			art = Article(row[0].encode('latin1').decode('utf-8').lower(), 
-				row[1].encode('latin1').decode('utf-8').lower(), 
-				row[2].encode('latin1').decode('utf-8').lower(), 
-				row[3].encode('latin1').decode('utf-8').lower(), 
-				row[4].encode('latin1').decode('utf-8').lower(), 
-				row[5].encode('latin1').decode('utf-8').lower(), 
-				row[6].encode('latin1').decode('utf-8').lower(),
-				row[7].encode('latin1').decode('utf-8').lower())
+			art = Article(row[0].lower(), 
+				row[1].lower(), 
+				row[2].lower(), 
+				row[3].lower(), 
+				row[4].lower(), 
+				row[5].lower(), 
+				row[6].lower(),
+				row[7].lower())
 			list_all_articles.append(art)
 	return list_all_articles
 
 def parse_stopwords():
 	list_stopwords = []
-	with open('../resources/stopwords.txt', 'r', encoding='latin1') as stopwords:
+	with open('../resources/stopwords_fr.txt', 'r', encoding='utf-8') as stopwords:
 		all_stopwords = stopwords.read()
 		words = all_stopwords.split('\n')
-		for w in words:
-			w = w.encode('latin1').decode('utf-8')
+		for w in words[1:-1]:
+			list_stopwords.append(w)
+	with open('../resources/stopwords_en.txt', 'r', encoding='utf-8') as stopwords_en:
+		all_stopwords = stopwords_en.read()
+		words = all_stopwords.split('\n')
+		for w in words[1:-1]:
 			list_stopwords.append(w)
 	return list_stopwords
 
@@ -120,7 +123,7 @@ def cleaning_articles():
 		'''
 		Removal of stopwords
 		'''
-		for stopword in list_stopwords[1:]:
+		for stopword in list_stopwords:
 			if stopword in list_series:
 				for elem in list_series:
 					if elem == stopword:
@@ -159,26 +162,4 @@ def cleaning_articles():
 		cleaned_articles.append(article)
 	return cleaned_articles
 
-def all_words(list_all_articles):
-	list_words_score = []
-	for article in list_all_articles:
-		for elem in article.series:
-			list_words_score.append(elem)
-		for elem in article.booktitle:
-			list_words_score.append(elem)
-		for elem in article.year:
-			list_words_score.append(elem)
-		for elem in article.title:
-			list_words_score.append(elem)
-		for elem in article.abstract:
-			list_words_score.append(elem)
-		for elem in article.abstract:
-			list_words_score.append(elem)
-	c = Counter(list_words_score)
-	print(c)
-
-articles = cleaning_articles()
-#for elem in articles:
-#	print(elem)
-all_words(articles)
  
