@@ -1,5 +1,4 @@
 import Parser_Article as p
-import Article
 
 articles = p.cleaning_articles()
 i = 0
