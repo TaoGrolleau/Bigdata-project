@@ -115,6 +115,10 @@ def cleaning_articles():
         for elem in art.authors.split():
             elem = strip_accents(elem)
             list_authors.append(elem)
+        for elem in art.pdf1page.split():
+            list_pdf1page.append(elem)
+        for elem in art.pdfarticle.split():
+            list_pdfarticle.append(elem)
 
         '''
 		Removal of stopwords
