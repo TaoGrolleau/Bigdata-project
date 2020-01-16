@@ -5,6 +5,7 @@ import unicodedata
 from Article import Article
 from collections import Counter
 
+
 def strip_accents(text):
     try:
         text = unicode(text, 'utf-8')
@@ -25,15 +26,15 @@ def strip_punctuation(text):
         if ch not in exclude:
             s += ch
         else:
-            s += ' '
+            s += ''
 
     return s
 
 
 def parse_articles():
-    '''
+    """
 	Parse the TXT file used as our data in the project
-	'''
+	"""
     list_all_articles = []
     with open('../resources/export_articles_EGC_2004_2018.csv', 'r', encoding='utf-8') as article_data:
         all_data = csv.reader(article_data, delimiter='\t')
@@ -66,10 +67,10 @@ def parse_stopwords():
 
 
 def cleaning_articles():
-    '''
+    """
 	Parse the useful files and does some cleaning (removing accentuation, punctuation and stopwords)
 	Returns a list of Article filled with lists of words
-	'''
+	"""
     list_all_articles = parse_articles()
     list_stopwords = parse_stopwords()
     cleaned_articles = []
@@ -84,19 +85,19 @@ def cleaning_articles():
         list_pdf1page = []
         list_pdfarticle = []
 
-        '''
+        """
 		Removing punctuation
-		'''
+		"""
         art.series = strip_punctuation(art.series)
         art.booktitle = strip_punctuation(art.booktitle)
         art.year = strip_punctuation(art.year)
         art.title = strip_punctuation(art.title)
         art.abstract = strip_punctuation(art.abstract)
-        art.authors = strip_punctuation(art.authors)
+        # art.authors = strip_punctuation(art.authors)
 
-        '''
+        """
 		Removing the french accentuation
-		'''
+		"""
         for elem in art.series.split():
             elem = strip_accents(elem)
             list_series.append(elem)
@@ -112,17 +113,18 @@ def cleaning_articles():
         for elem in art.abstract.split():
             elem = strip_accents(elem)
             list_abstract.append(elem)
-        for elem in art.authors.split():
+        for elem in art.authors.split(', '):
             elem = strip_accents(elem)
+            elem = strip_punctuation(elem)
             list_authors.append(elem)
         for elem in art.pdf1page.split():
             list_pdf1page.append(elem)
         for elem in art.pdfarticle.split():
             list_pdfarticle.append(elem)
 
-        '''
-		Removal of stopwords
-		'''
+        """
+        Removal of stopwords
+		"""
         for stopword in list_stopwords:
             if stopword in list_series:
                 for elem in list_series:
@@ -144,6 +146,7 @@ def cleaning_articles():
                 for elem in list_abstract:
                     if elem == stopword:
                         list_abstract.remove(elem)
+            # TODO : remove stop word in authors ?
             if stopword in list_authors:
                 for elem in list_authors:
                     if elem == stopword:
