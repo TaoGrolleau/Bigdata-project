@@ -26,7 +26,7 @@ def strip_punctuation(text):
         if ch not in exclude:
             s += ch
         else:
-            s += ''
+            s += ' '
 
     return s
 
