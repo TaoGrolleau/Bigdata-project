@@ -2,7 +2,7 @@
 import csv
 import string
 import unicodedata
-from src.Article import Article
+from Article import Article
 from collections import Counter
 
 def strip_accents(text):
