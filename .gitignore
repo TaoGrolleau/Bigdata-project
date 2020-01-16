@@ -478,3 +478,9 @@ TSWLatexianTemp*
 # End of https://www.gitignore.io/api/latex
 
 # End of https://www.gitignore.io/api/python
+/.idea/.gitignore
+/.idea/Bigdata.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
