@@ -50,8 +50,8 @@ def create_graph_authors():
         i += 1
     nx.clustering(graph)
     nx.draw(graph, with_labels=True)
-    #plt.show()
-    plt.savefig('../out/graph_authors')
+    plt.show()
+    plt.savefig('../out/graph_authors.png')
 
 def correlation_list(l1, l2, k=1):
     score = 0
