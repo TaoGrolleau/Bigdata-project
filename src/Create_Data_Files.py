@@ -1,11 +1,39 @@
 # -*- coding: utf-8 -*-
-import csv
 import os
+
+
+def create_authors_graph_file(list_articles, k):
+    """
+    Creates a TXT file for a R script with the couple of authors that wrote k articles together
+    """
+    list_couples_author = []
+    d = dict()
+    nodes_repr = ''
+    for article in list_articles:
+        for elem in article.authors[1:]:
+            node = article.authors[0].split().pop()
+            neighbour = elem.split().pop()
+            list_couples_author.append((''.join(node), ''.join(neighbour)))
+    for couple in list_couples_author:
+        d[couple] = d.get(couple, 0) + 1
+    list_couples_author = []
+    for elem in d:
+        value = d.get(elem)
+        list_couples_author.append((elem[0],elem[1], value))
+    list_couples_author.sort(key=lambda tup: tup[2], reverse=True)
+
+
+    with open('../data_files/graph_authors.txt', 'w') as graph_files:
+        for couple in list_couples_author:
+            if couple[2] > k:
+                nodes_repr += couple[0] + ' ' + couple[1] +'\n'
+        graph_files.write(nodes_repr)
+        print('File graph_authors created !')
 
 
 def create_output_folder_if_not_exist():
     # Create directory
-    dirName = '../out'
+    dirName = '../data_files/'
     try:
         # Create target Directory
         os.mkdir(dirName)
@@ -17,7 +45,7 @@ def create_output_folder_if_not_exist():
 def create_csv_file(articles):
     separator_column = ";"
     separator_in_column = "/"
-    f = open("../out/data.csv", "w")
+    f = open("../data_files/data.csv", "w")
     line = "id" + \
            separator_column + "series" + \
            separator_column + "booktitle" + \
@@ -86,14 +114,14 @@ def create_csv_file(articles):
                 authors = authors + separator_in_column + str(a)
             o += 1
         # création d'une ligne
-        line = str(i) +\
+        line = str(i) + \
                separator_column + serie.replace(" ", "") + \
-               separator_column + booktitle.replace(" ", "") +\
-               separator_column + year.replace(" ", "") +\
-               separator_column + title.replace(" ", "") +\
-               separator_column + abstract.replace(" ", "") +\
-               separator_column + authors.replace(" ", "") +\
-               separator_column + str(article.pdf1page) +\
+               separator_column + booktitle.replace(" ", "") + \
+               separator_column + year.replace(" ", "") + \
+               separator_column + title.replace(" ", "") + \
+               separator_column + abstract.replace(" ", "") + \
+               separator_column + authors.replace(" ", "") + \
+               separator_column + str(article.pdf1page) + \
                separator_column + str(article.pdfarticle) + "\n"
         f.writelines(line)
     f.close()
