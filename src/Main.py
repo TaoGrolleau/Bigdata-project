@@ -9,7 +9,7 @@ i = 0
 for elem in articles[:2]:
 	print(i, elem)
 	i += 1
-d.create_wordcloud(articles)
-d.create_graph_authors(articles)
+#d.create_wordcloud(articles)
+#d.create_graph_authors(articles)
 
 cdf.create_authors_graph_file(articles, 2)

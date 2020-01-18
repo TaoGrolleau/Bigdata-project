@@ -1,57 +1,67 @@
-do poulet
-stattner collard
-jelassi yahia
-cabanes bennani
-parisot tamisier
-jelassi largeron
-giacometti soulet
-pham morin
-blanchard briand
-masseglia marascu
-griesner abdesssalem
-griesner naacke
-belabbess lhez
-belabbess cure
-bouzayane saad
-bruneau pinheiro
-bouchareb boulle
-bouchareb rossi
-bosc boulicaut
-parisot didry
-guyet quiniou
-ferrero lejeune
-chaibi azzag
-chaibi lebbah
-barigou atmani
-guille favre
-lahbib boulle
-lahbib laurent
-hamdi safar
-hamdi reynaud
-grozavu bennani
-pham gros
-benabbas urruty
-benabbas djeraba
-lebbah azzag
-muller studer
-muller gabadinho
-muller ritschard
-pisetta zighed
-cleuziou martin
-toumi khenchaf
-charrad lechevallier
-charrad ahmed
-charrad saporta
-afonso diday
-silva lechevallier
-heddadji vincent
-heddadji kirchner
-heddadji stamon
-mahmoudi faiz
-ceausu despres
-boly hebrail
-prudhomme lallich
-ferrandiz boulle
-jacquenet largeron
-amrani kodratoff
-marteau vincent
+do poulet 7
+stattner collard 5
+jelassi yahia 5
+cabanes bennani 5
+parisot tamisier 4
+jelassi largeron 4
+giacometti soulet 4
+pham morin 4
+blanchard briand 4
+masseglia marascu 4
+griesner abdesssalem 3
+griesner naacke 3
+belabbess lhez 3
+belabbess cure 3
+bouzayane saad 3
+bruneau pinheiro 3
+bouchareb boulle 3
+bouchareb rossi 3
+bosc boulicaut 3
+parisot didry 3
+guyet quiniou 3
+ferrero lejeune 3
+chaibi azzag 3
+chaibi lebbah 3
+barigou atmani 3
+guille favre 3
+lahbib boulle 3
+lahbib laurent 3
+hamdi safar 3
+hamdi reynaud 3
+grozavu bennani 3
+pham gros 3
+benabbas urruty 3
+benabbas djeraba 3
+lebbah azzag 3
+muller studer 3
+muller gabadinho 3
+muller ritschard 3
+pisetta zighed 3
+cleuziou martin 3
+toumi khenchaf 3
+charrad lechevallier 3
+charrad ahmed 3
+charrad saporta 3
+afonso diday 3
+silva lechevallier 3
+heddadji vincent 3
+heddadji kirchner 3
+heddadji stamon 3
+mahmoudi faiz 3
+ceausu despres 3
+boly hebrail 3
+prudhomme lallich 3
+ferrandiz boulle 3
+jacquenet largeron 3
+amrani kodratoff 3
+marteau vincent 3
+pham poulet 2
+grozavu lebbah 2
+bruneau didry 1
+bruneau tamisier 1
+hamdi bennani 1
+masseglia lechevallier 1
+do lallich 1
+ferrandiz hebrail 1
+pisetta ritschard 1
+silva rossi 1

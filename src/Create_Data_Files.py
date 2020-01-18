@@ -4,9 +4,10 @@ import os
 
 def create_authors_graph_file(list_articles, k):
     """
-    Creates a TXT file for a R script with the couple of authors that wrote k articles together
+    Creates a TXT file for a R script with the couple of authors that wrote more than k articles together
     """
     list_couples_author = []
+    k_list_authors = []
     d = dict()
     nodes_repr = ''
     for article in list_articles:
@@ -17,19 +18,32 @@ def create_authors_graph_file(list_articles, k):
     for couple in list_couples_author:
         d[couple] = d.get(couple, 0) + 1
     list_couples_author = []
+
     for elem in d:
         value = d.get(elem)
         list_couples_author.append((elem[0],elem[1], value))
     list_couples_author.sort(key=lambda tup: tup[2], reverse=True)
 
+    for couple in list_couples_author:
+        list_first = []
+        list_second = []
+        if couple[2] > k:
+            k_list_authors.append(couple)
+        else:
+            """
+            Parmi les auteurs qui existent déjà, on rajoute le nombre d'articles qu'ils ont écrit ensemble
+            """
+            for elem in k_list_authors:
+                list_first.append(elem[0])
+                list_second.append(elem[1])
+            if couple[0] in list_first and couple[1] in list_second:
+                k_list_authors.append(couple)
 
     with open('../data_files/graph_authors.txt', 'w') as graph_files:
-        for couple in list_couples_author:
-            if couple[2] > k:
-                nodes_repr += couple[0] + ' ' + couple[1] +'\n'
+        for couple in k_list_authors:
+            nodes_repr += couple[0] + ' ' + couple[1] + ' '+ str(couple[2]) + '\n'
         graph_files.write(nodes_repr)
         print('File graph_authors created !')
-
 
 def create_output_folder_if_not_exist():
     # Create directory
