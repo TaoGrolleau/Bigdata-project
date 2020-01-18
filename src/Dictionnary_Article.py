@@ -1,22 +1,5 @@
 # -*- coding: utf-8 -*-
 import Parser_Article as p
-'''
-Requires pip install googletrans
-'''
-from googletrans import Translator
-
-def translate():
-	articles = p.cleaning_articles()
-	translator = Translator()
-	i = 0
-	for elem in articles:
-		list_word = []
-		for word in elem.title:
-			translation = translator.translate(word, dest='en', src='fr')
-			list_word.append(translation.text)
-		elem.title = list_word
-		i += 1
-		print(i, elem.title)
 
 def dictionnaries():
 	list_word_dictionnaries = []
@@ -28,5 +11,4 @@ def dictionnaries():
 	#print(list_word_dictionnaries)
 	return list_word_dictionnaries
 
-#dictionnaries()
-translate()
+get_lemma()
