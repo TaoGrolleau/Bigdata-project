@@ -6,25 +6,23 @@ import networkx as nx
 from PIL import Image
 import matplotlib.pyplot as plt
 
-def create_bag_of_words_model_title():
+def create_bag_of_words_model_title(list_articles):
     d = dict()
-    list_articles = p.cleaning_articles()
     for article in list_articles:
         for item in article.title:
             d[item] = d.get(item, 0) + 1
     return d
 
-def create_bag_of_words_model_abstract():
+def create_bag_of_words_model_abstract(list_articles):
     d = dict()
-    list_articles = p.cleaning_articles()
     for article in list_articles:
         for item in article.abstract:
             d[item] = d.get(item, 0) + 1
     return d
 
-def create_wordcloud():
-    frequencies_title = create_bag_of_words_model_title()
-    frequencies_abstract = create_bag_of_words_model_abstract()
+def create_wordcloud(list_articles):
+    frequencies_title = create_bag_of_words_model_title(list_articles)
+    frequencies_abstract = create_bag_of_words_model_abstract(list_articles)
 
     wc_title = WordCloud(background_color='white', width=1200, height=800)
     wc_abstract = WordCloud(background_color='white', width=1200, height=800, max_words=100)
@@ -35,9 +33,8 @@ def create_wordcloud():
     wc_abstract.to_file('../out/wordcloud_abstract.png')
     wc_title.to_file('../out/wordcloud_title.png')
 
-def create_graph_authors():
+def create_graph_authors(list_articles):
     graph = nx.Graph()
-    list_articles = p.cleaning_articles()
     i = 0
     for article in list_articles:
         j = 0
@@ -50,7 +47,7 @@ def create_graph_authors():
         i += 1
     nx.clustering(graph)
     nx.draw(graph, with_labels=True)
-    plt.show()
+    #plt.show()
     plt.savefig('../out/graph_authors.png')
 
 def correlation_list(l1, l2, k=1):
@@ -61,3 +58,20 @@ def correlation_list(l1, l2, k=1):
         if score == k:
             return True
     return False
+
+def correlation_topic(l1, l2, main_topics):
+    topics = []
+    for item in l1:
+        if item in l2 and item not in main_topics:
+            topics.append(item)
+    return topics
+
+def get_main_topics(all_topics):
+    main_topics = []
+    for i in range(len(all_topics)-1):
+        topics =  correlation_topic(all_topics[i], all_topics[i+1], main_topics)
+        for topic in topics:
+            main_topics.append(topic)
+    print(len(main_topics))
+    print(main_topics)
+

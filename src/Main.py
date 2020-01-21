@@ -1,16 +1,22 @@
-import CSVController as csv_controller
+import Create_Data_Files as cdf
 import Parser_Article as p
 import Data_Analyser as d
-import Idontknow as i
+import TextRankKeywords as trk
 
 articles = p.cleaning_articles()
-csv_controller.create_csv_file_for_R(articles)
-i.return_main_topics()
+#cdf.create_csv_file_for_R(articles)
+
+text_rank = trk.TextRankKeyword()
+all_topics = []
+
 i = 0
-"""
-for elem in articles[:1]:
+for elem in articles:
+	text_rank.analyze(elem)
 	print(i, elem)
+	all_topics.append(text_rank.get_keywords(4))
 	i += 1
-"""
-#d.create_wordcloud()
-#d.create_graph_authors()
+#d.create_wordcloud(articles)
+#d.create_graph_authors(articles)
+
+d.get_main_topics(all_topics)
+cdf.create_authors_graph_file(articles, 2)
