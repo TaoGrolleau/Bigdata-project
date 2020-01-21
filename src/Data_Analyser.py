@@ -59,19 +59,3 @@ def correlation_list(l1, l2, k=1):
             return True
     return False
 
-def correlation_topic(l1, l2, main_topics):
-    topics = []
-    for item in l1:
-        if item in l2 and item not in main_topics:
-            topics.append(item)
-    return topics
-
-def get_main_topics(all_topics):
-    main_topics = []
-    for i in range(len(all_topics)-1):
-        topics =  correlation_topic(all_topics[i], all_topics[i+1], main_topics)
-        for topic in topics:
-            main_topics.append(topic)
-    print(len(main_topics))
-    print(main_topics)
-
