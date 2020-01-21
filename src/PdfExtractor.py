@@ -71,6 +71,5 @@ def make_plot_famous_authors(authors_dic, size):
 
     plt.bar(x, y)
     plt.gca().set_xticklabels(x, rotation=45, ha='right', fontsize=8)
-    plt.show()
-
+    #plt.show()
     plt.savefig('../out/famous_authors.png')
