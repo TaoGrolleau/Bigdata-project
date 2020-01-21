@@ -69,6 +69,7 @@ def make_plot_famous_authors(authors_dic, size):
         if len(x) >= size:
             break
 
+    plt.figure(figsize=(16, 9), dpi=120)
     plt.bar(x, y)
     plt.gca().set_xticklabels(x, rotation=45, ha='right', fontsize=8)
     #plt.show()
