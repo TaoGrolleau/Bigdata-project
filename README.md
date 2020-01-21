@@ -34,9 +34,8 @@ We have to define a problem and use the techniques we learned to solve it. Some 
 over the period (example of representation with a bag of words model)
 - Propose a model to detect new topics appearing in the publications
 - Identify famous researchers based on their publications or based on citations of their papers
-- Get the coordonate of the tweet to know where are the users
-- Know the user that tweet the most/ with most followers
-- Know the most retweeted topics
+- Know the most retweeted topics ?
+- Voir l'activite du compte teeter
 
 ## What is expected in the report
 
