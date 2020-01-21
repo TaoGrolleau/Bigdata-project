@@ -35,6 +35,10 @@
           <option value="src.Parser_Article.unicode" />
           <option value="Article" />
           <option value="Idontknow" />
+          <option value="TextRankKeywords" />
+          <option value="Create_Data_Files" />
+          <option value="TopicModeling" />
+          <option value="VectorDict" />
         </list>
       </option>
     </inspection_tool>

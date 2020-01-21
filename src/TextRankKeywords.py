@@ -1,8 +1,6 @@
 from collections import OrderedDict
 
 import numpy as np
-import spacy
-
 
 class TextRankKeyword():
     """Extract keywords from text"""
