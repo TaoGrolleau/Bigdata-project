@@ -10,6 +10,15 @@ pip install wget
 pip install tika
 """
 
+def create_pdf_dir():
+    # Create directory
+    dirName = '../data_files/pdf'
+    try:
+        # Create target Directory
+        os.mkdir(dirName)
+        print("Directory ", dirName, " created ")
+    except FileExistsError:
+        print("Directory ", dirName, " already exists")
 
 def download_pdf_files(url_article_pdf, id):
     file_name = '../data_files/pdf/' + str(id) + '.pdf'
