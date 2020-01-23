@@ -5,6 +5,10 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
 import seaborn as sns
+"""
+pip install sklearn
+pip install seaborn
+"""
 
 list_main_topics = dict()
 

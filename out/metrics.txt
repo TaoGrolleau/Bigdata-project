@@ -1,0 +1,4 @@
+Mean number of author per article : 2.9472025216706066
+Number max of authors : 10
+Mean number of articles per year : 84.6
+Number of articles with only one author : 134
