@@ -16,12 +16,9 @@ def plot_articles_per_year(list_articles):
         nb_authors_year[year] = nb_authors_year.get(year, 0) + len(article.authors)
         total_authors += len(article.authors)
 
-    for year in article_year:
-        nb_authors_year[year] = nb_authors_year[year] / article_year[year]
-
     total_authors = total_authors / len(list_articles)
     mean_articles = len(list_articles)/15
-
+    # Articles
     lists = sorted(article_year.items())
     fig, ax = plt.subplots(figsize=(16, 9), dpi=120)
     x, y = zip(*lists)
@@ -33,6 +30,19 @@ def plot_articles_per_year(list_articles):
     ax.set_xticklabels(x)
     #plt.show()
     plt.savefig('../out/article_per_year.png')
+
+    # Authors
+    lists = sorted(nb_authors_year.items())
+    fig, ax = plt.subplots(figsize=(16, 9), dpi=120)
+    x, y = zip(*lists)
+    plt.bar(x, y)
+
+    ax.set_xlabel('Years')
+    # ax.set_title('Scores by group and gender')
+    ax.set_ylabel('Number of authors')
+    ax.set_xticklabels(x)
+    # plt.show()
+    plt.savefig('../out/authors_per_year.png')
 
     with open('../out/metrics.txt', 'w') as metrics_file:
         metrics_file.write('Mean number of author per article : '+ str(total_authors) + '\n')
