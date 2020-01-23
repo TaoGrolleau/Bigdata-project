@@ -61,11 +61,11 @@ Tweets
 list = pt.parse_json()
 pt.get_tweet_activity(list)
 
-# Parse whitout the RT and get the m
+# Parse whitout the Retweeted tweets and get the most liked and retweeted tweets
 listNoRt = pt.parse_json_no_RT()
 pt.get_most_rt_fav_tweets(listNoRt)
 
-# Get the most quoted and the most RT person
+# Get the most quoted and the most RT persons
 pt.get_Most_Quoted_Person()
 pt.get_Most_RT_Person()
 
