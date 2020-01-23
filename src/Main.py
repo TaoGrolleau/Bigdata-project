@@ -29,3 +29,14 @@ references_dic = pe.get_references(pe.get_authors_list(articles))
 pe.make_plot_famous_authors(references_dic, 50)
 
 cdf.create_authors_graph_file(articles, 2)
+
+## Tweets ##
+
+#list = pt.parse_json()
+#pt.get_tweet_activity(list)
+
+#listNoRt = pt.parse_json_no_RT()
+#pt.get_most_rt_fav_tweets(listNoRt)
+
+#pt.get_Most_Quoted_Person()
+pt.get_Most_RT_Person()
