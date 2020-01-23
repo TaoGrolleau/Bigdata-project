@@ -119,7 +119,7 @@ def plot_topic(dict_topic_tf):
     y = []
 
     max_value = 0
-    print(dict_topic_tf)
+    #print(dict_topic_tf)
 
     for key, valeur in dict_topic_tf:
         x.append(key)

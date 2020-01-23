@@ -1,0 +1,7 @@
+Most rt tweet : Tweet : txt: La soumission d'articles à #EGC2019 est ouverte ! Deadline pour les résumés le 7/10, pour les communications complè… https://t.co/LcU89e8NX6,
+ favorite_count: 1,
+ retweet_count: 8, 
+ created_at: 2018-09-05 13:11:15Most fav tweet : Tweet : txt: Keynote de Roberto di Cosmo sur l'héritage logiciel à #EGC2019, de github vers un réel archivage @rdicosmo @Metz_CS https://t.co/NhzwwKapKB,
+ favorite_count: 9,
+ retweet_count: 3, 
+ created_at: 2019-01-24 08:19:33

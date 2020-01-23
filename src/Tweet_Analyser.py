@@ -57,8 +57,9 @@ def get_RT_Tweets():
 def get_most_rt_fav_tweets(listTweets):
     list_rt_sorted = sorted(listTweets, key=lambda tweet: tweet[2], reverse=True)
     list_fav_sorted = sorted(listTweets, key=lambda tweet: tweet[1], reverse=True)
-    print(list_rt_sorted[0])
-    print(list_fav_sorted[0])
+    with open('../out/most_rt_and_liked.txt', 'w') as tweet_file:
+        tweet_file.write('Most rt tweet : ' + str(list_rt_sorted[0]))
+        tweet_file.write('Most fav tweet : ' + str(list_fav_sorted[0]))
 
 def get_Most_Quoted_Person():
     listmentions = []
@@ -68,7 +69,6 @@ def get_Most_Quoted_Person():
         tweet_dict = json.load(f)
         for t in tweet_dict:
             if t['in_reply_to_status_id'] is None and t['entities']['user_mentions'] and 'retweeted_status' not in t:
-                print(t['entities']['user_mentions'])
                 listmentions.append(t['entities']['user_mentions'])
                 #print(t)
         for userm in listmentions:
@@ -84,7 +84,8 @@ def get_Most_Quoted_Person():
         )
         plt.gca().set_title(' top quoted user', fontsize=20)
         plt.gca().set_xticklabels(plt.gca().get_xticklabels(), rotation=45, ha='right', fontsize=16)
-        plt.show()
+        #plt.show()
+        plt.savefig('../out/top_quoted_user.png')
 
 def get_Most_RT_Person():
     listmentions = []
@@ -97,7 +98,7 @@ def get_Most_RT_Person():
         for userm in listmentions:
             for e in userm:
                 if e['name'] != "Association EGC":
-                    print(e['name'])
+                    #print(e['name'])
                     list_user.append(str(e['name']))
 
         unique_words = set(list_user)
@@ -107,7 +108,8 @@ def get_Most_RT_Person():
         )
         plt.gca().set_title(' top retweeted user', fontsize=20)
         plt.gca().set_xticklabels(plt.gca().get_xticklabels(), rotation=45, ha='right', fontsize=16)
-        plt.show()
+        #plt.show()
+        plt.savefig('../out/top_rt_user.png')
 
 def get_tweet_activity(listTweets):
     #print(listTweets)

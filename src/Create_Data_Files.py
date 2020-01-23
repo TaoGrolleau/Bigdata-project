@@ -144,4 +144,4 @@ def create_csv_file(articles):
 def create_csv_file_for_R(articles):
     create_output_folder_if_not_exist()
     create_csv_file(articles)
-    print("Directory data.csv created")
+    print("File data.csv created")
